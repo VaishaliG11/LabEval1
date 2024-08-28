@@ -1,0 +1,24 @@
+#question 1
+def compare_strings(s1, s2):
+    s1_lower= s1.lower()
+    s2_lower= s2.lower()
+
+    if s1_lower == s2_lower:
+        print("Yes")
+        print(f"String1: {s1}")
+        print(f"String2: ")
+        return
+
+    common_chars= ''.join([char for char in s1 if char.lower() in s2_lower])
+    uncommon_chars= ''.join([char for char in s1 if char.lower() not in s2_lower])
+    uncommon_chars+= ''.join([char for char in s2 if char.lower() not in s1_lower])
+
+    if common_chars == s1:
+        print("Yes")
+        print(f"String1: {common_chars}")
+        print(f"String2: {uncommon_chars}")
+    else:
+        print("No")
+
+compare_strings("Refer", "Rafael")
+compare_strings("Refer", "Regfree")
